@@ -25,6 +25,7 @@ let menuItems = [
   Add those items to the <ul>
 
   Step 3: Still inside your function, select from the DOM the menu button (the element with a class of 'menu-button').
+          - use querySelector() to get an element out of the DOM
 
   Step 4: Add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on div.menu (your div with a 'menu' class).
 
@@ -32,3 +33,24 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+function menuMaker(menuItems){ 
+  const menuContainer = document.createElement('div');
+  const menuList = document.createElement('ul');
+
+  menuContainer.appendChild(menuList);
+
+  menuContainer.classList.add('menu');
+
+  menuItems.forEach(linkText => {  
+    const link = document.createElement('li');
+    link.textContent = linkText;
+    menuList.appendChild(link);
+  });
+
+  
+
+  return menuContainer;
+}
+
+console.log(menuMaker(menuItems));
